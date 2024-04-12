@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+
+    <bean id="initSampleData" class="contact.util.InitSampleData">
+        <property name="names">
+            <array>
+                <value>류현진</value>
+                <value>손흥민</value>
+                <value>김연경</value>
+            </array>
+        </property>
+        <property name="phoneNumbers">
+            <array>
+                <value>010-1111-2222</value>
+                <value>010-2222-3333</value>
+                <value>010-3333-4444</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="contactDao1" class="contact.dao.ContactDao">
+        <qualifier value="useBean" />
+    </bean>
+    <bean id="contactDao2" class="contact.dao.ContactDao"/>
+    <bean id="contactDao3" class="contact.dao.ContactDao"/>
+    <bean id="registerService" class="contact.service.ContactRegisterService" />
+    <bean id="contactSearchService" class="contact.service.ContactSearchService" />
+
+</beans>

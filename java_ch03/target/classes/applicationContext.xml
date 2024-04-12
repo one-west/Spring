@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="initSampleData" class="daelim.java_ch03.utils.InitSampleData">
+        <property name="sNums">
+            <array>
+                <value>spring001</value>
+                <value>spring002</value>
+                <value>spring003</value>
+                <value>spring004</value>
+                <value>spring005</value>
+            </array>
+        </property>
+    </bean>
+    <bean id="studentDAO" class="daelim.java_ch03.member.DAO.StudentDAO" />
+    <bean id="studentService" class="daelim.java_ch03.member.service.StudentService">
+        <constructor-arg ref="studentDAO" />
+    </bean>
+    <bean id="printStudentInformationService" class="daelim.java_ch03.member.service.PrintStudentInformationService">
+        <constructor-arg ref="studentService" />
+    </bean>
+    <bean id="emsInformationService" class="daelim.java_ch03.member.service.EMSInformationService">
+        <property name="info" value="Education Management System program was developed in 2024." />
+        <property name="copyRight" value="COPYRIGHT(C) 2024 DAELIM UNIVERSITY COLLEGE. ALL RIGHTS RESERVED" />
+        <property name="ver" value="The Version is 1.0" />
+        <property name="sYear" value="2024" />
+        <property name="sMonth" value="03" />
+        <property name="sDay" value="31" />
+        <property name="eYear" value="2024" />
+        <property name="eMonth" value="03" />
+        <property name="eDay" value="31" />
+        <property name="developers">
+            <list>
+                <value>Dev01</value>
+                <value>Dev02</value>
+                <value>Dev03</value>
+            </list>
+        </property>
+        <property name="administrators">
+            <map>
+                <entry>
+                    <key>
+                        <value>Dev01</value>
+                    </key>
+                    <value>dev01@test.com</value>
+                </entry>
+                <entry>
+                    <key>
+                        <value>Dev02</value>
+                    </key>
+                    <value>dev02@test.com</value>
+                </entry>
+                <entry>
+                    <key>
+                        <value>Dev03</value>
+                    </key>
+                    <value>dev03@test.com</value>
+                </entry>
+            </map>
+        </property>
+        <property name="dbInfos">
+            <map>
+                <entry>
+                    <key>
+                        <value>dev</value>
+                    </key>
+                    <ref bean="dev_DBConnection"/>
+                </entry>
+                <entry>
+                    <key>
+                        <value>real</value>
+                    </key>
+                    <ref bean="real_DBConnection"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- 개발용 -->
+    <bean id="dev_DBConnection" class="daelim.java_ch03.member.DBConnectionInfo" >
+        <property name="url" value="000.000.000.000" />
+        <property name="userId" value="admin" />
+        <property name="userPw" value="0000" />
+    </bean>
+    <!-- 실서비스용 -->
+    <bean id="real_DBConnection" class="daelim.java_ch03.member.DBConnectionInfo">
+        <property name="url" value="192.168.228.001" />
+        <property name="userId" value="master" />
+        <property name="userPw" value="1111" />
+    </bean>
+
+
+</beans>
