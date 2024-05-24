@@ -18,7 +18,7 @@ public class SurveyDao {
     public SurveyDao(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
-
+/*
     public void insert(Survey survey) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(new PreparedStatementCreator() {
@@ -37,5 +37,5 @@ public class SurveyDao {
         }, keyHolder);
         Number keyValue = keyHolder.getKey();
         member.setId(keyValue.longValue());
-    }
+    }*/
 }
