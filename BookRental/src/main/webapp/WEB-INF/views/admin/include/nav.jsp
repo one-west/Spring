@@ -14,10 +14,10 @@
         <%-- 로그인 성공 --%>
         <div class="menu">
             <ul>
-                <li><a href="<c:url value='/admin/member/logoutConfirm' />">로그아웃</a></li>
+                <li><a href="<c:url value='/admin/member/logoutConfirm' />">로그아웃 ${loginedAdminMemberVo.id}</a></li>
                 <li><a href="<c:url value='/admin/member/modifyAccountForm' />">계정수정</a></li>
 
-                <c:if test="${loginedAdminMemberVo.a_m_id eq 'system'}">
+                <c:if test="${loginedAdminMemberVo.id eq 'system'}">
                     <li><a href="<c:url value='/admin/member/listupAdmin' />">관리자목록</a></li>
                 </c:if>
 
