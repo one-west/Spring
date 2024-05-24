@@ -4,6 +4,7 @@
 <head>
     <jsp:include page="../../include/title.jsp"/>
     <link rel="stylesheet" href="/resources/css/admin/create_account_form.css" type="text/css">
+    <jsp:include page="../include/create_account_form_js.jsp" />
 </head>
 <body>
 <jsp:include page="../../include/header.jsp"/>
@@ -44,34 +45,5 @@
 </section>
 
 <jsp:include page="../../include/footer.jsp"/>
-<script type="text/javascript">
-    function createAccountForm() {
-        console.log("createAccountForm() CALLED!!");
-
-        let form = document.create_account_form;
-        if (form.id.value === '') {
-            alert("input admin id.");
-            form.id.focus();
-        }
-        else if (form.password.value === '') {
-            alert("input admin password.");
-            form.password.focus();
-        }
-        else if (form.password_confirm.value === '') {
-            alert("input admin passwordConfirm.");
-            form.password_confirm.focus();
-        }
-        else if (form.name.value === '') {
-            alert("input admin name.");
-            form.name.focus();
-        }
-        else if (form.email.value === '') {
-            alert("input admin email.");
-            form.email.focus();
-        } else {
-            return form.submit();
-        }
-    }
-</script>
 </body>
 </html>

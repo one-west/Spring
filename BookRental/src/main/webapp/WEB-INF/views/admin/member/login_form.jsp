@@ -4,6 +4,7 @@
 <head>
     <jsp:include page="../../include/title.jsp"/>
     <link rel="stylesheet" href="/resources/css/admin/login_form.css" type="text/css">
+    <jsp:include page="../include/login_js.jsp" />
 </head>
 <body>
 <jsp:include page="../../include/header.jsp"/>
@@ -16,7 +17,7 @@
 
 
         <div class="login_form">
-            <form action="<c:url value="/admin/" />" name="login_form"
+            <form action="<c:url value="/admin/member/loginConfirm/" />" name="login_form"
                   method="post">
                 <input type="text" name="id" placeholder="input admin id"><br>
                 <input type="password" name="password" placeholder="input admin password"><br>
@@ -34,22 +35,5 @@
 </section>
 
 <jsp:include page="../../include/footer.jsp"/>
-
-<script type="text/javascript">
-    function loginForm() {
-        let form = document.login_form;
-
-        if (form.id.value === '') {
-            alert("input admin id");
-            form.id.focus();
-        }
-        else if (form.password.value === '') {
-            alert("input admin password");
-            form.password.focus();
-        } else {
-            form.submit();
-        }
-    }
-</script>
 </body>
 </html>
