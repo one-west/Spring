@@ -12,9 +12,9 @@
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>
-                config.MvcConfig
-                config.ControllerConfig
-                config.SurveyConfig
+                daelim.spring.config.MvcConfig
+                daelim.spring.config.ControllerConfig
+                daelim.spring.config.SurveyConfig
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
