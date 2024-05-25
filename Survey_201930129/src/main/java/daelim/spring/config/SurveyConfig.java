@@ -33,7 +33,7 @@ public class SurveyConfig {
     }
     
     @Bean
-    public SurveyDao memberDao() {
+    public SurveyDao surveyDao() {
         return new SurveyDao(dataSource());
     }
     
