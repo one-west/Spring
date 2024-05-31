@@ -18,6 +18,9 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>
         daelim.book.rental.admin.config.MvcConfig
+        daelim.book.rental.admin.config.DbConfig
+        daelim.book.rental.admin.config.SecurityConfig
+        daelim.book.rental.admin.config.MailConfig
       </param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>

@@ -5,8 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -110,6 +108,51 @@ public class AdminMemberController {
         System.out.println("[AdminMemberController] seAdminApproval()");
         String nextPage = "redirect:/admin/member/listupAdmin";
         adminMemberService.setAdminApproval(no);
+        return nextPage;
+    }
+    
+    @GetMapping("/modifyAccountForm")
+    public String modifyAccountForm(Model model, HttpSession session) {
+        System.out.println("[AdminMemberController] modifyAccountForm()");
+        String nextPage = "/admin/member/modify_account_form";
+        AdminMemberVo adminMemberVo = (AdminMemberVo) session.getAttribute("loginedAdminMemberVo");
+        if (adminMemberVo == null) nextPage = "redirect:/admin/member/loginForm";
+        return nextPage;
+    }
+    
+    @PostMapping("/modifyAccountConfirm")
+    public String modifyAccountConfirm(AdminMemberVo adminMemberVo, HttpSession session) {
+        System.out.println("[AdminMemberController] modifyAccountConfirm()");
+        String nextPage = "/admin/member/modify_account_ok";
+        int result = adminMemberService.modifyAccountConfirm(adminMemberVo);
+        
+        if (result > 0) {
+            AdminMemberVo loginedAdminMemberVo = adminMemberService.getLoginedAdminMemberVo(adminMemberVo.getNo());
+            
+            session.setAttribute("loginedAdminMemberVo", loginedAdminMemberVo);
+            session.setMaxInactiveInterval(60 * 30);
+        } else {
+            nextPage = "admin/member/modify_account_ng";
+        }
+        return nextPage;
+    }
+    
+    @GetMapping("/findPasswordForm")
+    public String findePasswordForm() {
+        System.out.println("[AdminMemberController] findPasswordForm()");
+        String nextPage = "admin/member/find_password_form";
+        return nextPage;
+    }
+    
+    @PostMapping("/findPasswordConfirm")
+    public String findPasswordConfirm(AdminMemberVo adminMemberVo) {
+        System.out.println("[AdminMemberController] findPasswordConfirm()");
+        String nextPage = "admin/member/find_password_ok";
+        int result = adminMemberService.findPasswordConfirm(adminMemberVo);
+        
+        if (result <= 0) {
+            nextPage = "admin/member/find_password_ng";
+        }
         return nextPage;
     }
 }

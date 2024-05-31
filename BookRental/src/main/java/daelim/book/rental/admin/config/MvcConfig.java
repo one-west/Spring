@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.*;
 public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        WebMvcConfigurer.super.configureDefaultServletHandling(configurer);
+        configurer.enable();
     }
 
     @Override

@@ -28,7 +28,7 @@
         </div>
 
         <div class="find_password_create_account">
-            <a href="<c:url value="/admin/member/loginForm"/>">find password</a>
+            <a href="<c:url value="/admin/member/findPasswordForm"/>">find password</a>
             <a href="<c:url value="/admin/member/createAccountForm"/>">create password</a>
         </div>
     </div>
