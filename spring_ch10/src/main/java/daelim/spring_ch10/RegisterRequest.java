@@ -1,6 +1,8 @@
 package daelim.spring_ch10;
 
-import org.hibernate.validator.constraints.*;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.Size;
 

@@ -1,6 +1,6 @@
-package config;
+package daelim.spring.config;
 
-import controller.SurveyController;
+import daelim.spring.controller.SurveyController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
