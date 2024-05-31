@@ -1,5 +1,6 @@
 package daelim.spring_ch10.config;
 
+import daelim.spring_ch10.CommonExceptionHandler;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,5 +38,10 @@ public class MvcConfig implements WebMvcConfigurer {
     @Bean
     public LocalValidatorFactoryBean validator() {
         return new LocalValidatorFactoryBean();
+    }
+    
+    @Bean
+    public CommonExceptionHandler commonExceptionHandler() {
+        return new CommonExceptionHandler();
     }
 }

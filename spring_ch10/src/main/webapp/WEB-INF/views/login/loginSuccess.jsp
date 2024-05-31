@@ -11,6 +11,7 @@
 <h2><spring:message code="login.done"/></h2>
 <p>
     <a href="<c:url value="/main"/>">[<spring:message code="go.main"/>]</a>
+    <a href="<c:url value="/members"/>">[<spring:message code="go.members"/>]</a>
 </p>
 </body>
 </html>

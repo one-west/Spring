@@ -2,9 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Hello</title>
+  <title>에러</title>
 </head>
 <body>
-인사말 : ${greeting}
+에러가 발생했습니다.
 </body>
 </html>
