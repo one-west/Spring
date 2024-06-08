@@ -21,24 +21,15 @@
 <%--<jsp:include page="../include/nav_cookie.jsp" />--%>
 <jsp:include page="../include/nav.jsp" />
 <section>
-
     <div id="section_wrap">
-
         <div class="word">
-
             <h3>LOGIN SUCCESS!!</h3>
-
         </div>
-
         <div class="others">
-
             <a href="<c:url value='/admin/member/logoutConfirm' />">logout</a>
             <a href="<c:url value='/admin/member/modifyAccountForm' />">modify account</a>
-
         </div>
-
     </div>
-
 </section>
 
 <jsp:include page="../../include/footer.jsp" />
