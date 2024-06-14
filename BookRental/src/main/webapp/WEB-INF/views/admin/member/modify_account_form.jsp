@@ -23,7 +23,7 @@
         <input type="hidden" name="no" value="<%= loginedAdminMemberVo.getNo() %>">
         <input type="text" name="id" value="<%=loginedAdminMemberVo.getId()%>" placeholder="INPUT USER NAME." readonly
                disabled> <br>
-        <input type="password" name="password" value="******" readonly disabled> <br>
+        <input type="password" name="password" value="*******" readonly disabled> <br>
         <input type="text" name="name" value="<%=loginedAdminMemberVo.getName()%>" placeholder="INPUT USER NAME."><br>
 
         <select name="gender">

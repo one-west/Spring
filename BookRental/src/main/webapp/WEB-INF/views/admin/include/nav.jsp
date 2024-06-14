@@ -41,9 +41,9 @@
       }
     %>
     <div class="search">
-      <form action="<c:url value='' />" name="search_book_form" method="get">
-        <input type="text" name="b_name" placeholder="Enter the name of the book you are looking for.">
-        <input type="button" value="search" onclick="searchBookForm()">
+      <form action="<c:url value='/book/admin/searchBookConfirm' />" name="search_book_form" method="get">
+        <input type="text" name="name" placeholder="Enter the name of the book you are looking for.">
+        <input type="button" value="search" onclick="searchBookForm();">
       </form>
     </div>
   </div>

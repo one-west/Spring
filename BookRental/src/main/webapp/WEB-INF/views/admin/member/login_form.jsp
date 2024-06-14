@@ -15,7 +15,6 @@
             <h3>LOGIN FORM</h3>
         </div>
 
-
         <div class="login_form">
             <form action="<c:url value="/admin/member/loginConfirm/" />" name="login_form"
                   method="post">

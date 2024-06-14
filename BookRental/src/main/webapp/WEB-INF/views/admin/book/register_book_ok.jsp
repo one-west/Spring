@@ -3,7 +3,7 @@
 <html>
 <head>
   <jsp:include page="../../include/title.jsp"/>
-  <link rel="stylesheet" href="<c:url value="/resources/css/admin/register_book_result.css"/>" type="text/css">
+  <link rel="stylesheet" href="<c:url value="/resources/css/admin/create_account_result.css"/>" type="text/css">
 </head>
 <body>
 <jsp:include page="../../include/header.jsp"/>
@@ -13,10 +13,9 @@
     <div class="word">
       <h3>REGISTER BOOK SUCCESS!!</h3>
     </div>
-
     <div class="others">
-      <a href="<c:url value="/admin/member/book/admin/registerBookForm"/>">create account</a>
-      <a href="<c:url value="/admin/member/loginForm"/>">login account</a>
+      <a href="<c:url value="/admin/book/admin/registerBookForm"/>">register book</a>
+      <a href="<c:url value="/admin/"/>">home</a>
     </div>
   </div>
 </section>
