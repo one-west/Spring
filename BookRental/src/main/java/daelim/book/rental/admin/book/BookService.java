@@ -1,8 +1,9 @@
 package daelim.book.rental.admin.book;
 
-import daelim.book.rental.BookVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class BookService {
@@ -26,5 +27,30 @@ public class BookService {
         } else {
             return Book_ISBN_ALREDDY_EXIST;
         }
+    }
+    
+    public List<BookVo> selectBook(String name) {
+        System.out.println("[BookService] selectBook()");
+        return bookDao.selectBook(name);
+    }
+    
+    public List<BookVo> selectAllBook() {
+        System.out.println("[BookService] selectAllBook()");
+        return bookDao.selectAllBook();
+    }
+    
+    public BookVo selectById(int no) {
+        System.out.println("[BookService] selectById()");
+        return bookDao.selectById(no);
+    }
+    
+    public int updateBook(BookVo bookVo) {
+        System.out.println("[BookService] updateBook()");
+        return bookDao.updateBook(bookVo);
+    }
+    
+    public int deleteBook(int no) {
+        System.out.println("[BookService] deleteBook()");
+        return bookDao.deleteBook(no);
     }
 }

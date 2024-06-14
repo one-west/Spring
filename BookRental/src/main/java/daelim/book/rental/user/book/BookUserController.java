@@ -1,18 +1,23 @@
-package daelim.book.rental.admin.book;
+package daelim.book.rental.user.book;
 
+import daelim.book.rental.admin.book.BookService;
+import daelim.book.rental.admin.book.BookVo;
 import daelim.book.rental.admin.util.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("/book/admin")
-public class BookController {
+@RequestMapping("/book/user")
+public class BookUserController {
     
     @Autowired
     private BookService bookService;
@@ -45,10 +50,10 @@ public class BookController {
     }
     
     @GetMapping("/searchBookConfirm")
-    public String searchBookConfirm(Model model, @RequestParam("name") String name) {
+    public String searchBookConfirm(Model model) {
         System.out.println("[BookController] searchBookConfirm()");
         String nextPage = "admin/book/search_book";
-        List<BookVo> bookVos = bookService.selectBook(name);
+        List<BookVo> bookVos = bookService.selectAllBook();
         model.addAttribute("bookVos", bookVos);
         return nextPage;
     }
@@ -112,6 +117,14 @@ public class BookController {
         
         List<BookVo> bookVos = bookService.selectAllBook();
         model.addAttribute("bookVos", bookVos);
+        
+        return nextPage;
+    }
+    
+    @GetMapping("/enterBookshelf")
+    public String enterBookshelf(Model model) {
+        System.out.println("[BookController] enterBookshelf()");
+        String nextPage = "user/book/enterBookshelf";
         
         return nextPage;
     }
